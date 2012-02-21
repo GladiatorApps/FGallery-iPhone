@@ -74,9 +74,18 @@
 @synthesize useThumbnailView = _useThumbnailView;
 @synthesize startingIndex = _startingIndex;
 @synthesize beginsInThumbnailView = _beginsInThumbnailView;
-
+@synthesize barItems=_barItems;
 #pragma mark - Public Methods
 
+// Added to support storyboards in iOS5
+// Note this could have been implemented in a subclass of FGalleryViewController as well
+- (id)initWithCoder:(NSCoder *)aDecoder{
+    self=[super initWithCoder:aDecoder];
+    if (self) {
+        self= [super initWithNibName:nil bundle:nil];
+    }
+    return self;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -135,6 +144,10 @@
 	return self;
 }
 
+-(void) setBarItems:(NSArray*)items{
+    [_barItems addObjectsFromArray:items];
+    [self reloadGallery];
+}
 
 - (void)loadView
 {

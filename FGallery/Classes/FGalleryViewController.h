@@ -48,7 +48,7 @@ typedef enum
 	UILabel *_caption;
 	
 	NSMutableDictionary *_photoLoaders;
-	NSMutableArray *_barItems;
+	//NSMutableArray *_barItems;
 	NSMutableArray *_photoThumbnailViews;
 	NSMutableArray *_photoViews;
 	
@@ -75,6 +75,7 @@ typedef enum
 @property (nonatomic,retain) NSString *galleryID;
 @property (nonatomic) BOOL useThumbnailView;
 @property (nonatomic) BOOL beginsInThumbnailView;
+@property (nonatomic, retain) NSMutableArray *barItems; 
 
 @end
 
